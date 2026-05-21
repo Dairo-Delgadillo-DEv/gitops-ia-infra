@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mi-api-v1-mi-ia-api-service
+  namespace: default
+spec:
+  selector:
+    app: mi-ia-api
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: ClusterIP

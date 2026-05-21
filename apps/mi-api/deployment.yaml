@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mi-api-v1-mi-ia-api
+  namespace: default
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: mi-ia-api
+  template:
+    metadata:
+      labels:
+        app: mi-ia-api
+    spec:
+      containers:
+      - name: api-container
+        image: nginx:alpine # Usamos nginx de base simulando tu contenedor empaquetado
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            memory: "256Mi"
+            cpu: "500m"
+          requests:
+            memory: "128Mi"
+            cpu: "256m"
