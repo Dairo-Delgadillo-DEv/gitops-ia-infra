@@ -1,0 +1,19 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: api-traffic-alerts
+  namespace: monitoring
+  labels:
+    release: grafana-stack
+spec:
+  groups:
+  - name: api-high-traffic
+    rules:
+    - alert: ApiServerHighTraffic
+      expr: sum(rate(apiserver_request_total[1m])) > 10
+      for: 30s
+      labels:
+        severity: critical
+      annotations:
+        summary: "¡Alerta Crítica! Alto tráfico detectado en el API Server"
+        description: "El clúster está procesando más de 10 peticiones por segundo (Valor actual: {{ $value }}). El sistema podría estar bajo estrés o sufriendo un ataque."
