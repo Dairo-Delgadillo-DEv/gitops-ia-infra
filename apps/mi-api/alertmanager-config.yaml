@@ -1,0 +1,23 @@
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: AlertmanagerConfig
+metadata:
+  name: telegram-config
+  namespace: monitoring
+  labels:
+    release: grafana-stack
+spec:
+  route:
+    groupBy: ['alertname']
+    groupWait: 10s
+    groupInterval: 10s
+    repeatInterval: 1h
+    receiver: 'telegram-receiver'
+  receivers:
+  - name: 'telegram-receiver'
+    telegramConfigs:
+    - botToken:
+        name: telegram-alerts-secret
+        key: token
+      chatID: 1943944263
+      sendResolved: true
+      parseMode: 'HTML'
