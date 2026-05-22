@@ -21,6 +21,6 @@ spec:
     - botToken:
         name: telegram-alerts-secret
         key: token
-      chatID: 1943944263
+      chatID: "1943944263"
       sendResolved: true
       parseMode: 'HTML'
