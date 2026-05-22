@@ -6,6 +6,7 @@ metadata:
   labels:
     release: grafana-stack
 spec:
+  alertmanagerConfigNamespace: {}
   route:
     groupBy: ['alertname']
     groupWait: 10s
@@ -23,4 +24,4 @@ spec:
         key: token
       chatID: 1943944263
       sendResolved: true
-      parseMode: 'HTML'
+      parseMode: 'HTML'S
