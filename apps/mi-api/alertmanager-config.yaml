@@ -6,7 +6,6 @@ metadata:
   labels:
     release: grafana-stack
 spec:
-  alertmanagerConfigNamespace: {}
   route:
     groupBy: ['alertname']
     groupWait: 10s
