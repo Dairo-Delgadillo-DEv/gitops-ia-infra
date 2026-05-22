@@ -12,7 +12,7 @@ spec:
   - name: api-rules
     rules:
     - alert: ApiServerHighTraffic
-      expr: suma(rate(apiserver_request_total[1m])) > 3
+      expr: suma(rate(apiserver_requests_total[1m])) > 3
       for: 10s
       labels:
         severity: critical
