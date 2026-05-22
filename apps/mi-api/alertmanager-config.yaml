@@ -10,8 +10,11 @@ spec:
     groupBy: ['alertname']
     groupWait: 10s
     groupInterval: 10s
-    repeatInterval: 1h
+    repeatInterval: 5m
     receiver: 'telegram-receiver'
+    matchers:
+    - name: alertname
+      value: ApiServerHighTraffic
   receivers:
   - name: 'telegram-receiver'
     telegramConfigs:
