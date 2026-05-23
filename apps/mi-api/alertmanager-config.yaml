@@ -1,26 +1,21 @@
 apiVersion: monitoring.coreos.com/v1alpha1
 kind: AlertmanagerConfig
 metadata:
-  name: telegram-config
-  namespace: monitoring
-  labels:
-    release: grafana-stack
+  name: mi-api-alert-config
+  namespace: monitoring # Importante: Debe ir en el namespace donde corre tu Prometheus/Alertmanager
 spec:
   route:
-    groupBy: ['alertname']
-    groupWait: 10s
-    groupInterval: 10s
-    repeatInterval: 5m
-    receiver: 'telegram-receiver'
-    matchers:
-    - name: alertname
-      value: ApiServerHighTraffic
+    groupBy: ['alertname', 'job']
+    groupWait: 30s
+    groupInterval: 5m
+    repeatInterval: 12h
+    receiver: 'telegram-chatbot'
+    continue: false
   receivers:
-  - name: 'telegram-receiver'
+  - name: 'telegram-chatbot'
     telegramConfigs:
     - botToken:
-        name: telegram-alerts-secret
-        key: token
-      chatID: 1943944263
+        name: telegram-bot-secret  # Nombre del Secret de Kubernetes
+        key: token                  # Clave dentro del Secret
+      chatId: 1943944263       # ID de tu chat o canal (recuerda mantener el signo menos si aplica)
       sendResolved: true
-      parseMode: 'HTML'S
