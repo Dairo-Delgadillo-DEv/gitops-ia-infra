@@ -17,5 +17,5 @@ spec:
     - botToken:
         name: telegram-bot-secret  # Nombre del Secret de Kubernetes
         key: token                  # Clave dentro del Secret
-      chatId: 1943944263       # ID de tu chat o canal (recuerda mantener el signo menos si aplica)
+      chatId: 1943944263           # ID de tu chat o canal (recuerda mantener el signo menos si aplica)
       sendResolved: true
