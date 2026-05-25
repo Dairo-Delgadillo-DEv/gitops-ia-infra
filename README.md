@@ -64,13 +64,19 @@ An end-to-end monitoring solution scrapes memory allocations, execution quotas, 
 
 Below are the live telemetry metrics captured directly from the internal cluster deployment. These dashboards illustrate resource mapping, node performance, and persistent data scraping under active production conditions.
 
+![Infrastructure Telemetry Dashboard](https://github.com/user-attachments/assets/93e2a7c2-b759-48d2-a549-252a32e4cfcf)
+
 ### Active CPU Utilization Analysis
 Continuous monitoring of CPU cycles allocation per component. The stacked area graph identifies the specific usage metrics for core stack components (Prometheus, Grafana, Node-Exporter) and validates resource efficiency.
+
+<img width="858" height="254" alt="cpu-usage-232139" src="https://github.com/user-attachments/assets/bc3dfced-4827-45f1-b434-8aa41895b927" />
+
 
 ### Persistent Memory Scoping (w/o cache)
 End-to-end trace of persistent memory allocation across the namespace. This telemetry ensures stable thresholds for critical in-memory components (like Prometheus), preventing resource-driven OOMKiller events.
 
-![Infrastructure Telemetry Dashboard](https://github.com/user-attachments/assets/93e2a7c2-b759-48d2-a549-252a32e4cfcf)
+<img width="858" height="257" alt="memory-usage-233214" src="https://github.com/user-attachments/assets/7d456930-1678-4f04-b31e-e0e02000e313" />
+
 
 ## 📈 System Operation & Telemetry Validation
 
