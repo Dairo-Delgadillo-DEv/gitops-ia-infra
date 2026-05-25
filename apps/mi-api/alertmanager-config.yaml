@@ -1,0 +1,22 @@
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: AlertmanagerConfig
+metadata:
+  name: mi-api-alert-config
+  namespace: monitoring
+  labels:
+    release: kube-prometheus-stack
+spec:
+  route:
+    groupBy: ['alertname', 'job']
+    groupWait: 30s
+    groupInterval: 5m
+    repeatInterval: 12h
+    receiver: 'telegram-chatbot'
+  receivers:
+  - name: 'telegram-chatbot'
+    telegramConfigs:
+    - botToken:
+        name: telegram-bot-secret
+        key: token
+      chatId: 1943944263
+      sendResolved: true
