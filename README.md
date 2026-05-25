@@ -73,8 +73,8 @@ End-to-end trace of persistent memory allocation across the namespace. This tele
 Simulating Production Alerts via Sockets
 To evaluate routing accuracy, engineers can test pipeline triggers locally by mapping isolated microservices back to the host environment using port tunnels and testing hooks:
 
-image
-<img width="860" height="444" alt="infrastructure-233230" src="https://github.com/user-attachments/assets/fdff2a8c-8137-4f05-8fd4-d867dd985b8d" />
+<img width="860" height="444" alt="infrastructure-233230" src="https://github.com/user-attachments/assets/93e2a7c2-b759-48d2-a549-252a32e4cfcf" />
+
 
 
 
